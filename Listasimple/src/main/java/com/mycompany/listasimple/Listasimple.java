@@ -155,6 +155,80 @@ public class Listasimple {
     JOptionPane.showMessageDialog(null, "El nodo ha sido movido al final de la lista");
 }
     
+    public void eliminarPorPosicion(int posicion) {
+    if (inicio == null) {
+        JOptionPane.showMessageDialog(null, "La lista está vacía");
+        return;
+    }
+
+    // Si se desea eliminar el primer nodo
+    if (posicion == 1) {
+        inicio = inicio.getEnlace();
+        JOptionPane.showMessageDialog(null, "Nodo eliminado de la posición " + posicion);
+        return;
+    }
+
+    Nodo temporal = inicio;
+    Nodo anterior = null;
+    int contador = 1;
+
+    // Recorrer la lista hasta la posición deseada
+    while (temporal != null && contador < posicion) {
+        anterior = temporal;
+        temporal = temporal.getEnlace();
+        contador++;
+    }
+
+    // Si la posición es inválida
+    if (temporal == null) {
+        JOptionPane.showMessageDialog(null, "Posición fuera de rango");
+        return;
+    }
+
+    // Eliminar el nodo en la posición indicada
+    anterior.setEnlace(temporal.getEnlace());
+    JOptionPane.showMessageDialog(null, "Nodo eliminado de la posición " + posicion);
+}
     
+    public void eliminarPorDato(String nombre) {
+    if (inicio == null) {
+        JOptionPane.showMessageDialog(null, "La lista está vacía");
+        return;
+    }
+
+    boolean encontrado = false;
+
+    // Eliminar nodos con el dato dado del inicio de la lista
+    while (inicio != null && inicio.getNombre().equals(nombre)) {
+        inicio = inicio.getEnlace();
+        encontrado = true;
+    }
+
+    // Si la lista estaba llena de nodos con el dato dado
+    if (!encontrado && inicio == null) {
+        JOptionPane.showMessageDialog(null, "Todos los nodos han sido eliminados");
+        return;
+    }
+
+    Nodo temporal = inicio;
+    Nodo anterior = null;
+
+    // Recorrer la lista para eliminar los nodos con el dato dado
+    while (temporal != null) {
+        if (temporal.getNombre().equals(nombre)) {
+            anterior.setEnlace(temporal.getEnlace());
+            encontrado = true;
+        } else {
+            anterior = temporal;
+        }
+        temporal = temporal.getEnlace();
+    }
+
+    if (encontrado) {
+        JOptionPane.showMessageDialog(null, "Nodos con el nombre \"" + nombre + "\" han sido eliminados");
+    } else {
+        JOptionPane.showMessageDialog(null, "No se encontraron nodos con el nombre \"" + nombre + "\"");
+    }
+}
     
 }

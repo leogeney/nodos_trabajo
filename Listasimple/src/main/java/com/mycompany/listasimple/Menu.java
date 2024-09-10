@@ -41,6 +41,8 @@ public class Menu extends javax.swing.JFrame {
         insertarfinal = new javax.swing.JButton();
         jButton1 = new javax.swing.JButton();
         jButton3 = new javax.swing.JButton();
+        eliminar = new javax.swing.JButton();
+        eliminarvalor = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -87,14 +89,24 @@ public class Menu extends javax.swing.JFrame {
             }
         });
 
+        eliminar.setText("eliminar por inidce");
+        eliminar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                eliminarActionPerformed(evt);
+            }
+        });
+
+        eliminarvalor.setText("eliminar por valor");
+        eliminarvalor.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                eliminarvalorActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(165, 165, 165)
-                .addComponent(jLabel1)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -115,6 +127,18 @@ public class Menu extends javax.swing.JFrame {
                         .addComponent(jButton2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addComponent(insertarfinal))
                 .addGap(39, 39, 39))
+            .addGroup(layout.createSequentialGroup()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(165, 165, 165)
+                        .addComponent(jLabel1))
+                    .addGroup(layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(eliminar))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(79, 79, 79)
+                        .addComponent(eliminarvalor)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -144,9 +168,13 @@ public class Menu extends javax.swing.JFrame {
                         .addComponent(insertarfinal)))
                 .addGap(18, 18, 18)
                 .addComponent(jButton1)
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(eliminar)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(eliminarvalor)
+                .addGap(3, 3, 3)
                 .addComponent(jButton3)
-                .addContainerGap(48, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         pack();
@@ -197,6 +225,16 @@ public class Menu extends javax.swing.JFrame {
 
     }//GEN-LAST:event_jButton3ActionPerformed
 
+    private void eliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_eliminarActionPerformed
+      int posicion = Integer.parseInt(JOptionPane.showInputDialog(null, "Ingrese la posición del nodo que desea eliminar"));
+    objlista.eliminarPorPosicion(posicion);
+    }//GEN-LAST:event_eliminarActionPerformed
+
+    private void eliminarvalorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_eliminarvalorActionPerformed
+           String nombre = JOptionPane.showInputDialog(null, "Ingrese el nombre del nodo que desea eliminar");
+    objlista.eliminarPorDato(nombre);
+    }//GEN-LAST:event_eliminarvalorActionPerformed
+
     
     
     /**
@@ -237,6 +275,8 @@ public class Menu extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton crearinicio;
     private javax.swing.JTextField edad;
+    private javax.swing.JButton eliminar;
+    private javax.swing.JButton eliminarvalor;
     private javax.swing.JButton insertarfinal;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
