@@ -231,4 +231,52 @@ public class Listasimple {
     }
 }
     
+    public void ordenarPorNombre() {
+    if (inicio == null || inicio.getEnlace() == null) {
+        JOptionPane.showMessageDialog(null, "La lista no tiene suficientes elementos para ordenar");
+        return;
+    }
+
+    boolean huboCambio;
+    do {
+         
+        //actual: para rastrear el nodo que estamos comparando.
+        //siguiente: es el nodo siguiente al que se está comparando.
+        //anterior: rastrea el nodo anterior en caso de que necesitemos intercambiar nodos.
+        //huboCambio: se utiliza para verificar si hubo intercambios en cada pasada del ciclo.
+        
+        Nodo actual = inicio;
+        Nodo siguiente = inicio.getEnlace();
+        Nodo anterior = null;
+        huboCambio = false;
+
+        
+        //Usamos un ciclo while para recorrer toda la lista. Si el nombre del nodo actual es mayor (alfabéticamente) que el del nodo siguiente, entonces intercambiamos ambos nodos.
+        while (siguiente != null) {
+            if (actual.getNombre().compareToIgnoreCase(siguiente.getNombre()) > 0) {
+                // Intercambiar nodos
+                huboCambio = true;
+                if (anterior == null) {
+                    // Cambiar el inicio de la lista
+                    inicio = siguiente;
+                } else {
+                    anterior.setEnlace(siguiente);
+                }
+                actual.setEnlace(siguiente.getEnlace());
+                siguiente.setEnlace(actual);
+                
+                // Actualizar punteros
+                anterior = siguiente;
+                siguiente = actual.getEnlace();
+            } else {
+                anterior = actual;
+                actual = siguiente;
+                siguiente = siguiente.getEnlace();
+            }
+        }
+    } while (huboCambio);
+
+    JOptionPane.showMessageDialog(null, "Lista ordenada alfabéticamente por nombre");
+}
+    
 }
