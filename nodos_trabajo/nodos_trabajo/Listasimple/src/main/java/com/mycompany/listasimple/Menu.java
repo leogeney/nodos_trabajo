@@ -44,7 +44,6 @@ public class Menu extends javax.swing.JFrame {
         eliminar = new javax.swing.JButton();
         eliminarvalor = new javax.swing.JButton();
         jButton4 = new javax.swing.JButton();
-        crear = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -112,13 +111,6 @@ public class Menu extends javax.swing.JFrame {
             }
         });
 
-        crear.setText("crear ");
-        crear.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                crearActionPerformed(evt);
-            }
-        });
-
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -131,7 +123,7 @@ public class Menu extends javax.swing.JFrame {
                             .addComponent(jLabel2)
                             .addComponent(jLabel3)
                             .addComponent(jLabel4))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 72, Short.MAX_VALUE)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(nombre, javax.swing.GroupLayout.DEFAULT_SIZE, 95, Short.MAX_VALUE)
                             .addComponent(edad)
@@ -147,11 +139,8 @@ public class Menu extends javax.swing.JFrame {
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(eliminar)
                                     .addComponent(eliminarvalor)
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addComponent(jButton4)
-                                        .addGap(48, 48, 48)
-                                        .addComponent(crear)))))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 46, Short.MAX_VALUE)))
+                                    .addComponent(jButton4))))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jButton3)
                     .addComponent(jButton1)
@@ -196,9 +185,7 @@ public class Menu extends javax.swing.JFrame {
                     .addComponent(eliminarvalor)
                     .addComponent(jButton3))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 12, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton4)
-                    .addComponent(crear))
+                .addComponent(jButton4)
                 .addGap(26, 26, 26))
         );
 
@@ -265,10 +252,6 @@ public class Menu extends javax.swing.JFrame {
     objlista.consultar(); // Para mostrar la lista ordenada
     }//GEN-LAST:event_jButton4ActionPerformed
 
-    private void crearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_crearActionPerformed
-        objlista.insertarNodosAutomaticos();
-    }//GEN-LAST:event_crearActionPerformed
-
     
     
     /**
@@ -307,7 +290,6 @@ public class Menu extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton crear;
     private javax.swing.JButton crearinicio;
     private javax.swing.JTextField edad;
     private javax.swing.JButton eliminar;

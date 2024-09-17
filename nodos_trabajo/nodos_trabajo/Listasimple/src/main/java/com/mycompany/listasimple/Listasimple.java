@@ -4,7 +4,6 @@
 
 package com.mycompany.listasimple;
 
-import java.util.Random;
 import javax.swing.JOptionPane;
 
 /**
@@ -240,19 +239,11 @@ public class Listasimple {
 
     boolean huboCambio;
     do {
-         
-        //actual: para rastrear el nodo que estamos comparando.
-        //siguiente: es el nodo siguiente al que se está comparando.
-        //anterior: rastrea el nodo anterior en caso de que necesitemos intercambiar nodos.
-        //huboCambio: se utiliza para verificar si hubo intercambios en cada pasada del ciclo.
-        
         Nodo actual = inicio;
         Nodo siguiente = inicio.getEnlace();
         Nodo anterior = null;
         huboCambio = false;
 
-        
-        //Usamos un ciclo while para recorrer toda la lista. Si el nombre del nodo actual es mayor (alfabéticamente) que el del nodo siguiente, entonces intercambiamos ambos nodos.
         while (siguiente != null) {
             if (actual.getNombre().compareToIgnoreCase(siguiente.getNombre()) > 0) {
                 // Intercambiar nodos
@@ -279,46 +270,5 @@ public class Listasimple {
 
     JOptionPane.showMessageDialog(null, "Lista ordenada alfabéticamente por nombre");
 }
-    
-    public void insertarNodosAutomaticos() {
-        int cantidad;
-        String input = JOptionPane.showInputDialog("¿Cuántos nodos deseas crear?");
-        
-        try {
-            cantidad = Integer.parseInt(input);
-            if (cantidad <= 0) {
-                JOptionPane.showMessageDialog(null, "La cantidad debe ser mayor que 0");
-                return;
-            }
-        } catch (NumberFormatException e) {
-            JOptionPane.showMessageDialog(null, "Entrada no válida. Debes ingresar un número entero.");
-            return;
-        }
-
-        Random random = new Random();
-        for (int i = 0; i < cantidad; i++) {
-            String nombre = generarNombreAleatorio(random);
-            int edad = random.nextInt(121); // Edad entre 0 y 120
-            float promedio = random.nextFloat() * 10; // Promedio entre 0.0 y 10.0
-
-            // Inserta al final de la lista
-            insertarFinal(nombre, edad, promedio);
-        }
-
-        JOptionPane.showMessageDialog(null, "Se han creado " + cantidad + " nodos automáticamente.");
-    }
-    
-      private String generarNombreAleatorio(Random random) {
-        
-        int longitud = random.nextInt(5) + 3; // Longitud entre 3 y 7 caracteres
-        StringBuilder palabra = new StringBuilder(longitud);
-        for (int i = 0; i < longitud; i++) {
-            // Genera caracteres aleatorios entre 'a' y 'z'
-            char letra = (char) (random.nextInt(26) + 'a');
-            palabra.append(letra);
-        }
-        return palabra.toString();
-      
-    }
     
 }
